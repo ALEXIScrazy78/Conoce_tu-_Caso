@@ -1,0 +1,33 @@
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Entornos virtuales y caché de Python
+backend/venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Archivos PDF temporales o de prueba pesados
+backend/temp_*.pdf
+*.pdf
+!Glosario.docx
+
+# Frontend (Node / Vite)
+node_modules/
+dist/
+build/
+.vite/
+*.local
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
