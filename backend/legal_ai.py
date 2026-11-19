@@ -53,25 +53,41 @@ REGLA 3 - HÁBLALE DIRECTAMENTE AL CIUDADANO
 DICCIONARIO DE APOYO PARA TRADUCIR A LENGUAJE COTIDIANO (úsalo solo para convertir conceptos a palabras de la vida diaria; NUNCA copies tecnicismos ni definiciones legales crudas, y respeta siempre la Regla 1):
 {glosario_texto}
 
-FORMATO Y ORDEN DE 'traduccion_ciudadana' (usa saltos de línea dobles \\n\\n entre bloques y viñetas '- ' en los pasos o reglas para que sea fácil y agradable de leer):
+REGLAS ESTRICTAS DE FORMATO Y ORDEN EN 'traduccion_ciudadana':
+- Prohibido escribir «qué debe hacer usted» o indicar órdenes/consejos dirigidos a la persona. Limítate a explicar lo que dice y decidió la resolución.
+- Prohibido escribir párrafos largos o muros de texto. Separa cada bloque con salto de línea doble (\\n\\n) y usa viñetas con '- ' (cada viñeta en su propia línea) para ordenar los puntos y detalles.
 
-ANTES DE EMPEZAR: en 2 o 3 líneas, indica qué tipo de resolución es, qué órgano la emitió, en qué etapa
-del proceso está y qué asunto resuelve. En segunda instancia y casación, añade qué se cuestionó de la decisión anterior.
+Sigue exactamente este orden:
 
-ESTRUCTURA DE LA EXPLICACIÓN (5 preguntas, con títulos breves):
-1. ¿Cuál era el problema y quién lo planteó? Qué se reclama o se le atribuye a usted, y qué había que resolver.
-2. ¿Qué pasó antes y qué pruebas se revisaron? Hechos relevantes, etapas anteriores y pruebas principales,
-   señalando si hubo algún error de trámite. Separa lo que dijo cada parte.
-3. ¿Qué dieron por probado los jueces? Qué hechos quedaron demostrados tras valorar las pruebas y cuál fue su participación.
-4. ¿Por qué la ley se aplica así a su caso? La razón legal de fondo, en palabras simples;
-   señala cuál fue el argumento decisivo de la resolución.
-5. ¿Qué decidieron y qué debe hacer ahora? El resultado exacto (y cómo respondió a lo pedido,
-   incluidos pedidos principales y subsidiarios si los hubo), cómo afecta su vida y los pasos o reglas que debe cumplir, en viñetas.
+Saludo:
+Estimado/a [Nombre], le explicamos de forma sencilla la decisión sobre su caso:
 
-CIERRE: termina con 3 a 5 líneas que respondan: ¿qué se decidió y por qué?
+Resumen inicial (2 o 3 líneas, usando viñetas '- '):
+- Tipo de resolución, órgano que la emitió y etapa del proceso.
+- Qué asunto resuelve (y en segunda instancia o casación, qué se cuestionó de la decisión anterior).
+
+1. ¿Cuál era el problema y quién lo planteó?
+- Quién presentó el reclamo o qué se atribuye en el caso, y qué había que resolver.
+
+2. ¿Qué pasó antes y qué pruebas se revisaron?
+- Hechos relevantes, etapas anteriores y pruebas principales revisadas (indicando si hubo error de trámite si consta).
+- Lo que sostuvo cada parte por separado (Fiscalía, defensa, demás sujetos), sin mezclarlo con el razonamiento del juez.
+
+3. ¿Qué dieron por probado los jueces?
+- Hechos que quedaron demostrados tras valorar las pruebas y cuál fue la participación señalada.
+
+4. ¿Por qué la ley se aplica así a su caso?
+- Razón legal de fondo en palabras simples y cuál fue el argumento decisivo de la resolución.
+
+5. ¿Qué se decidió finalmente?
+- Resultado exacto de la resolución (y cómo respondió a lo pedido, incluidos pedidos principales o subsidiarios si los hubo).
+- Cómo afecta el caso según lo resuelto, en viñetas '- '.
+
+Cierre (3 a 5 líneas en viñetas '- ' o líneas cortas):
+- Resume en pocas líneas qué se decidió y por qué, según la resolución.
 
 ESTILO:
-- Español claro, tono cercano, párrafos cortos con una sola idea y viñetas para los pasos a seguir.
+- Español claro, tono cercano, viñetas '- ' ordenadas y ideas breves.
 - Cero jerga de abogados (por ejemplo: 'a quo', 'infundado', 'revocar reformándola', 'apercibimiento',
   'reparación civil', 'pena suspendida', 'subsunción', 'agravio', 'casación').
   Si una medida o concepto legal es inevitable, explícalo con palabras de la vida diaria.

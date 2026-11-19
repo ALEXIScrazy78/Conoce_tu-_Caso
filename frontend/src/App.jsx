@@ -23,6 +23,64 @@ const RESOLUCIONES_INICIALES = [
   },
 ];
 
+function TextoOrdenadoConVinetas({ texto, className = "" }) {
+  if (!texto || typeof texto !== "string") return null;
+
+  const bloques = texto
+    .split(/\n\s*\n/)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
+  return (
+    <div className={`app-ordenado ${className}`}>
+      {bloques.map((bloque, bIdx) => {
+        const lineas = bloque
+          .split(/\n/)
+          .map((l) => l.trim())
+          .filter(Boolean);
+
+        const todasVinetas =
+          lineas.length > 0 && lineas.every((l) => /^[-•*]\s+/.test(l));
+
+        if (todasVinetas) {
+          return (
+            <ul key={bIdx} className="app-list">
+              {lineas.map((l, lIdx) => (
+                <li key={lIdx}>{l.replace(/^[-•*]\s+/, "")}</li>
+              ))}
+            </ul>
+          );
+        }
+
+        const tieneMezcla = lineas.some((l) => /^[-•*]\s+/.test(l));
+        if (tieneMezcla) {
+          return (
+            <div key={bIdx} className="app-bloque-mixto">
+              {lineas.map((l, lIdx) =>
+                /^[-•*]\s+/.test(l) ? (
+                  <ul key={lIdx} className="app-list app-list--compact">
+                    <li>{l.replace(/^[-•*]\s+/, "")}</li>
+                  </ul>
+                ) : (
+                  <p key={lIdx} className="app-linea-titulo">
+                    {l}
+                  </p>
+                )
+              )}
+            </div>
+          );
+        }
+
+        return (
+          <p key={bIdx} className="app-linea-titulo">
+            {bloque}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function App() {
   const [cacheAnalisis, setCacheAnalisis] = useState(() => {
     try {
@@ -105,21 +163,28 @@ export default function App() {
 
   const construirTextoParaLeer = (datos, tituloResolucion) => {
     if (!datos) return "";
+    const limpio = (str) =>
+      typeof str === "string" ? str.replace(/^[-•*]\s+/gm, "") : "";
+
     const partes = [
       tituloResolucion ? `${tituloResolucion}.` : "",
       datos.traduccion_ciudadana
-        ? `Explicación directa para usted: ${datos.traduccion_ciudadana}`
+        ? `Explicación directa para usted: ${limpio(datos.traduccion_ciudadana)}`
         : "",
       datos.resolucion_fallo
-        ? `Decisión final y qué debe hacer usted: ${datos.resolucion_fallo}`
+        ? `Decisión final: ${limpio(datos.resolucion_fallo)}`
         : "",
       datos.resumen_antecedentes
-        ? `Antecedentes y pruebas revisadas: ${datos.resumen_antecedentes}`
+        ? `Antecedentes y pruebas revisadas: ${limpio(datos.resumen_antecedentes)}`
         : "",
     ];
 
     if (Array.isArray(datos.fundamentos_clave) && datos.fundamentos_clave.length > 0) {
-      partes.push(`Puntos clave del análisis: ${datos.fundamentos_clave.join(". ")}`);
+      partes.push(
+        `Puntos clave del análisis: ${datos.fundamentos_clave
+          .map((f) => limpio(f))
+          .join(". ")}`
+      );
     }
 
     return partes.filter(Boolean).join("\n\n");
@@ -499,24 +564,33 @@ export default function App() {
                     <strong className="app-bubble-title">
                       Explicación directa para usted:
                     </strong>
-                    <p className="app-bubble-text">{datosActuales.traduccion_ciudadana}</p>
+                    <TextoOrdenadoConVinetas
+                      texto={datosActuales.traduccion_ciudadana}
+                      className="app-bubble-text"
+                    />
                   </div>
 
                   <div className="app-sec-box">
-                    <h3 className="app-sec-title">Decisión final y qué debe hacer usted</h3>
-                    <p className="app-fallo-text">{datosActuales.resolucion_fallo}</p>
+                    <h3 className="app-sec-title">Decisión final</h3>
+                    <TextoOrdenadoConVinetas
+                      texto={datosActuales.resolucion_fallo}
+                      className="app-fallo-text"
+                    />
                   </div>
 
                   <div className="app-sec-box">
                     <h3 className="app-sec-title">Antecedentes y pruebas revisadas</h3>
-                    <p className="app-body-text">{datosActuales.resumen_antecedentes}</p>
+                    <TextoOrdenadoConVinetas
+                      texto={datosActuales.resumen_antecedentes}
+                      className="app-body-text"
+                    />
                   </div>
 
                   <div className="app-sec-box">
                     <h3 className="app-sec-title">Puntos clave del análisis</h3>
                     <ul className="app-list">
                       {(datosActuales.fundamentos_clave || []).map((item, idx) => (
-                        <li key={idx}>{item}</li>
+                        <li key={idx}>{String(item).replace(/^[-•*]\s+/, "")}</li>
                       ))}
                     </ul>
                   </div>
