@@ -3,6 +3,10 @@ import "./App.css";
 
 const CACHE_STORAGE_KEY = "entiende_tu_caso_cache_v1";
 const PREFS_STORAGE_KEY = "entiende_tu_caso_prefs_v1";
+const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(
+  /\/+$/,
+  ""
+);
 
 const RESOLUCIONES_INICIALES = [
   {
@@ -229,7 +233,7 @@ export default function App() {
     formData.append("file", archivoPdf);
 
     try {
-      const response = await fetch("http://localhost:8000/process-pdf", {
+      const response = await fetch(`${API_URL}/process-pdf`, {
         method: "POST",
         body: formData,
       });
